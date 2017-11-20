@@ -1,0 +1,50 @@
+{
+  "name": "Readable-app",
+  "version": "0.1.0",
+  "private": true,
+  "keywords": [
+    "udacity",
+    "redux",
+    "readable",
+    "react",
+    "styled-components",
+    "material-ui",
+    "express"
+  ],
+  "dependencies": {
+    "body-parser": "^1.x",
+    "clone": "^2.x",
+    "cors": "^2.x",
+    "dotenv": "^4.x",
+    "express": "latest",
+    "material-ui": "next",
+    "react": "^16.x",
+    "react-dom": "^16.x",
+    "react-redux": "^5.x",
+    "react-router-dom": "^4.x",
+    "redux": "^3.7.2",
+    "redux-saga": "^1.0.0-beta.0",
+    "styled-components": "^2.x"
+  },
+  "devDependencies": {
+    "babel-register": "latest",
+    "babel-preset-env": "latest",
+    "babel-preset-react": "latest",
+    "react-scripts": "latest"
+  },
+  "scripts": {
+    "server": "node ./server ",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ]
+  },
+  "author": "Jackie Benjamin Liu",
+  "license": "ISC"
+}

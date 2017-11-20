@@ -1,4 +1,4 @@
-const clone = require('clone')
+import clone from 'clone';
 
 let db = {}
 
@@ -117,7 +117,7 @@ function edit (token, id, post) {
     })
 }
 
-module.exports = {
+export default {
   get,
   getAll,
   getByCategory,

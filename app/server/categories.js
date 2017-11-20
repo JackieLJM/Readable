@@ -1,5 +1,5 @@
-const clone = require('clone')
-const config = require('./config')
+import clone from 'clone';
+import config from './config';
 
 let db = {}
 
@@ -36,6 +36,5 @@ function getAll (token) {
   })
 }
 
-module.exports = {
-  getAll
-}
+exports default getAll;
+

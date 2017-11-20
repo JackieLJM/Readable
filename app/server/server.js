@@ -1,20 +1,19 @@
-require('dotenv').config()
+import {renderToString} from 'react-dom/server';
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import config from './config';
+import categories from './categories';
+import posts from './posts';
+import comments from './comments';
 
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const config = require('./config')
-const categories = require('./categories')
-const posts = require('./posts')
-const comments = require('./comments')
+const app = express();
 
-const app = express()
-
-app.use(express.static('public'))
-app.use(cors())
+app.use(express.static('public'));
+app.use(cors());
 
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   const help = `
   <pre>
     Welcome to the Udacity Readable API!
@@ -318,3 +317,5 @@ app.delete('/comments/:id', (req, res) => {
 app.listen(config.port, () => {
   console.log('Server listening on port %s, Ctrl+C to stop', config.port)
 })
+
+// react server side rendering

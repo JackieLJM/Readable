@@ -4,7 +4,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 import {Router} from 'react-router-dom';
-import configureStore from './configureStore.js';
+import configureStore from './store/configureStore.js';
 import sagas from 'sagas';
 
 const store = configureStore();

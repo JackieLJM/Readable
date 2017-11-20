@@ -1,4 +1,4 @@
-const clone = require('clone')
+import clone from 'clone';
 
 let db = {}
 
@@ -118,7 +118,7 @@ function edit (token, id, comment) {
     })
 }
 
-module.exports = {
+export default {
   get,
   getByParent,
   add,

@@ -1,3 +1,4 @@
-import {combine} from 'redux';
+import {combineReducers} from 'redux';
 
-export combine()
+const readable=combineReducers({});
+export default readable;

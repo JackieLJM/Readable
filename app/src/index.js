@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -9,7 +10,7 @@ import sagas from 'sagas';
 
 const store = configureStore();
 store.runSaga(sagas);
-ReactDOM.render(
+ReactDOM.hydrate(
 <Provider store={store}>
     <App/>
 </Provider>, document.getElementById('root'));

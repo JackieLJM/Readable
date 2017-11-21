@@ -12,6 +12,7 @@
     "express"
   ],
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.x",
     "clone": "^2.x",
     "cors": "^2.x",

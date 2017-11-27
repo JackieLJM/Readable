@@ -36,5 +36,5 @@ function getAll (token) {
   })
 }
 
-exports default getAll;
+export default getAll;
 

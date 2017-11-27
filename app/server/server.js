@@ -1,6 +1,8 @@
 import {renderToString} from 'react-dom/server';
 import express from 'express';
 import bodyParser from 'body-parser';
+import favicon from 'serve-favicon';
+import path from 'path';
 import cors from 'cors';
 import config from './config';
 import categories from './categories';
@@ -9,7 +11,9 @@ import comments from './comments';
 
 const app = express();
 
-app.use(express.static('public'));
+// app.use(favicon(path.join(__dirname,'../public/favicon.ico')));
+app.use(express.static('bulid'));
+// app.use(express.static('public'));
 app.use(cors());
 // app.use(function(req,res){res.send("Welcome Home.")});
 // react server side rendering,
@@ -26,8 +30,8 @@ const renderFullPage=(html,preloadedState)=>{
         manifest.json provides metadata used when your web app is added to the
         homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
       -->
-      <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-      <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+      <link rel="manifest" href="/manifest.json">
+      <!--<link rel="shortcut icon" href="/favicon.ico">-->
       <!--
         Notice the use of %PUBLIC_URL% in the tags above.
         It will be replaced with the URL of the 'public' folder during the build.
@@ -37,7 +41,7 @@ const renderFullPage=(html,preloadedState)=>{
         work correctly both with client-side routing and a non-root public URL.
         Learn how to configure a non-root public URL by running 'npm run build'.
       -->
-      <title>React App</title>
+      <title>Readable App</title>
     </head>
     <body>
       <noscript>
@@ -60,13 +64,14 @@ const renderFullPage=(html,preloadedState)=>{
   </html>
 `
 }
-const handleRender=(req,res)=>{
+const handleRender=(req,res,next)=>{
   const html="<div></div>", preloadedState="123";
   // res.send("start");
   res.send(renderFullPage(html,preloadedState));
+  // next();
   // res.send("end");
 }
-app.use(handleRender);
+app.get('/', handleRender);
 
 app.get('/api', (req, res) => {
   const help = `

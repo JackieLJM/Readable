@@ -2,6 +2,7 @@
   "name": "Readable-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://localhost:5001",
   "keywords": [
     "udacity",
     "redux",
@@ -25,6 +26,7 @@
     "react-router-dom": "^4.x",
     "redux": "^3.7.2",
     "redux-saga": "^1.0.0-beta.0",
+    "serve-favicon": "^2.4.5",
     "styled-components": "^2.x"
   },
   "devDependencies": {
@@ -34,7 +36,8 @@
     "react-scripts": "latest"
   },
   "scripts": {
-    "server": "node ./server ",
+    "app": "npm run start && npm run server",
+    "server": "node ./server",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

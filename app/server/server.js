@@ -1,17 +1,23 @@
+import React from 'react';
 import {renderToString} from 'react-dom/server';
+import {StaticRouter} from 'react-router';
+import configureStore from '../src/store/configureStore.js';
+import {Provider} from 'react-redux';
 import express from 'express';
 import bodyParser from 'body-parser';
 import favicon from 'serve-favicon';
 import path from 'path';
 import cors from 'cors';
+import app from '../src/App.js';
 import config from './config';
 import categories from './categories';
 import posts from './posts';
 import comments from './comments';
 
 const app = express();
+const store = configureStore();
 
-// app.use(favicon(path.join(__dirname,'../public/favicon.ico')));
+app.use(favicon(path.join(__dirname,'../public/favicon.ico')));
 app.use(express.static('bulid'));
 // app.use(express.static('public'));
 app.use(cors());
@@ -49,7 +55,7 @@ const renderFullPage=(html,preloadedState)=>{
       </noscript>
       <div id="root">${html}</div>
       <script>window.__PRELOADED_STATE__= ${preloadedState}</script>
-      <script src='bundle.js'></script>
+      <!--<script src='bundle.js'></script>-->
       <!--
         This HTML file is a template.
         If you open it directly in the browser, you will see an empty page.
@@ -65,7 +71,7 @@ const renderFullPage=(html,preloadedState)=>{
 `
 }
 const handleRender=(req,res,next)=>{
-  const html="<div></div>", preloadedState="123";
+  const html=renderToString(<Provider></Provider>), preloadedState="123";
   // res.send("start");
   res.send(renderFullPage(html,preloadedState));
   // next();

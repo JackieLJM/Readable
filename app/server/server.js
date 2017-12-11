@@ -71,7 +71,7 @@ const renderFullPage=(html,preloadedState)=>{
 `
 }
 const handleRender=(req,res,next)=>{
-  const html=renderToString(<Provider></Provider>), preloadedState="123";
+  const html=renderToString(<Provider><StaticRouter></StaticRouter></Provider>), preloadedState="123";
   // res.send("start");
   res.send(renderFullPage(html,preloadedState));
   // next();
